@@ -1,0 +1,12 @@
+<template name="adminLayoutDefault">
+
+  <div class="adminLayoutDefault d-flex flex-column min-vh-100">
+    {{#if currentUser}}
+    {{> adminComponentsNavbar}}
+    {{/if}}
+    <div class="d-flex flex-fill px-0">
+      {{> Template.dynamic template=page}}
+    </div>
+  </div>
+
+</template>

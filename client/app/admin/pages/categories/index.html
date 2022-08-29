@@ -1,0 +1,32 @@
+<template name="adminPagesCategories">
+
+  {{#let _categories=(state.get 'categories')}}
+  <div class="container">
+    <div class="row my-2">
+      <div class="d-flex justify-content-between">
+        <h1>Categories</h1>
+        <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal"
+          data-bs-target="#brdPublicModalsAddCategoryModal">
+          Add Category
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      {{#each _categories}}
+      <div class="col-sm-6 my-2">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <a href="/categories/{{_id}}" class="btn btn-secondary">Şarkıları Listele</a>
+            <a href="#" class="btn btn-danger" id="brd-delete">Kategoriyi sil</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{/let}} {{> adminModalsAddCategory}}
+
+</template>
