@@ -18,7 +18,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
-            <a href="/categories/{{_id}}" class="btn btn-secondary">Şarkıları Listele</a>
+            <a href="/admin/songs/{{_id}}" class="btn btn-secondary">Şarkıları Listele</a>
             <a href="#" class="btn btn-danger" id="brd-delete">Kategoriyi sil</a>
           </div>
         </div>
@@ -27,6 +27,7 @@
     </div>
   </div>
 
-  {{/let}} {{> adminModalsAddCategory}}
+  {{/let}}
+  {{> adminModalsAddCategory}}
 
 </template>

@@ -26,3 +26,9 @@ routes.route("/categories", {
     this.render("adminLayoutDefault", { page: "adminPagesCategories" });
   },
 });
+routes.route("/songs/:categoryId", {
+  name: "admin.songs",
+  action: function (params, queryParams) {
+    this.render("adminLayoutDefault", { page: "adminPagesSongs" });
+  },
+});

@@ -62,8 +62,8 @@ Template.adminPagesCategories.events({
   },
 });
 
-// Template.adminPagesCategories.helpers({
-//   deneme: function () {
-//     return Categories.findOne({});
-//   },
-// });
+Template.adminPagesCategories.helpers({
+  deneme: function () {
+    return Categories.findOne({});
+  },
+});

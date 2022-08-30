@@ -1,0 +1,42 @@
+<template name="adminModalsAddSong">
+  <div class="modal" id="brdAdminModalsAddSongModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="brdAdminModalsAddSongForm">
+
+            <div class="mb-3">
+              <label for="brdSongNameField" class="form-label">Song Name</label>
+              <input type="text" class="form-control" id="brdSongNameField" aria-describedby="songHelp"
+                name="songName" />
+            </div>
+            <div class="mb-3">
+              <label for="brdSongSingerNameField" class="form-label">Signer Name</label>
+              <input type="text" class="form-control" id="brdSongSingerNameField" name="singerName" />
+            </div>
+            <div class="mb-3">
+              <label for="brdSongArrayBufField" class="form-label"></label>
+              <input type="file" accept="audio/*" class="form-control" id="brdSongArrayBufField" name="arrayBuf">
+            </div>
+            <!-- <div class="mb-3">
+              <button id="startButton" disabled>Start</button>
+              <button id="stopButton" disabled>Stop</button>
+            </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" form="brdAdminModalsAddSongForm" class="btn btn-primary">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
