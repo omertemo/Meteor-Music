@@ -2,9 +2,9 @@
   {{#let _songs=(state.get "songs") _category=(state.get "category") }}
   <div class="container">
     <div class="row my-2">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between text-white">
         <h1>{{_category.name}}</h1>
-        <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal"
+        <button class=" btn btn-success btn-sm float-end" data-bs-toggle="modal"
           data-bs-target="#brdAdminModalsAddSongModal">
           Add Songs
         </button>
@@ -29,6 +29,9 @@
               <a href="#" class="btn btn-danger" id="brd-delete-song">Sil</a>
               <a href="#" class="btn btn-warning" id="brd-update-song" data-bs-toggle="modal"
                 data-bs-target="#brdAdminModalsUpdateSongModal">Güncelle</a>
+              {{> adminComponentsAudioControl }}
+
+
             </td>
           </tr>
           {{/each}}

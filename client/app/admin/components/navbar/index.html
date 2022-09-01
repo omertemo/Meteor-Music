@@ -1,9 +1,9 @@
 <template name="adminComponentsNavbar">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
 
-      <a class="navbar-brand " href="/"><img src="Logo.svg" alt=""></a>
+      <a class="navbar-brand " href="/"><img src="/img/Logo.svg" alt=""></a>
       <div class="d-flex  justify-content-center text-white">
         <ul class="navbar-nav flex-inline me-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -27,7 +27,6 @@
       <div class="d-flex  justify-content-end text-white">
         {{#if currentUser}}
         <a href="#" class="btn btn-danger brd-logout me-2">Exit</a>
-
         <a href="{{pathFor 'admin.categories'}}" class="btn btn-success">My Proile</a>
         {{else}}
         <a href="{{pathFor 'admin.signIn'}}" class="btn btn-outline-success">Sign-in</a>

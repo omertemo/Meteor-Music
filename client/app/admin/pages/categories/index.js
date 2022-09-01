@@ -9,6 +9,7 @@ Template.adminPagesCategories.onCreated(function () {
 });
 
 Template.adminPagesCategories.onRendered(function () {
+  // console.log(context);
   const self = this;
 
   this.autorun(function () {

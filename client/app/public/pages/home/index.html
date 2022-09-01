@@ -1,18 +1,25 @@
 <template name="publicPagesHome">
+  {{#let _songs=(state.get "songs")}}
 
   <h1 class="text-white">deneme</h1>
   <!-- ŞARKI LİSTESİ -->
+
   <ul class="list-group list-group-horizontal mt-5 liste overflow-auto">
 
+    {{#each _songs }}
     <li class="list-group-item bg-transparent col-lg-2 col-md-3  col-sm-4 ">
       <div href="#" class="card bg-dark text-white ">
         <img src="img/song.jpg" class="card-img foto" alt="...">
-        <div class="btn card-img-overlay d-flex justify-content-center align-items-center">
+        <div class="btn card-img-overlay d-flex justify-content-center align-items-center" id="startButton">
           <i class="bi bi-play-circle fs-1 icon"></i>
         </div>
-      </div>
-    </li>
 
+      </div>
+    </li>
+    {{/each}}
+
+
+    <!-- 
     <li class="list-group-item bg-transparent col-lg-2 col-md-3  col-sm-4 ">
       <div href="#" class="card bg-dark text-white ">
         <img src="img/song.jpg" class="card-img foto" alt="...">
@@ -84,7 +91,7 @@
           <i class="bi bi-play-circle fs-1 icon"></i>
         </div>
       </div>
-    </li>
+    </li> -->
 
   </ul>
   <!-- ŞARKI LİSTESİ SON -->
@@ -355,5 +362,6 @@
   </ul>
 
   <!-- HIZLI SEÇİM LİSTESİ SON-->
+  {{/let}}
 
 </template>

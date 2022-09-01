@@ -2,6 +2,10 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import Swal from "sweetalert2";
 
 Template.adminPagesSongs.onCreated(function () {
+  context = new AudioContext();
+  source = null;
+  audioBuffer = null;
+
   this.state = new ReactiveDict(null, {
     songs: [],
     category: [],
@@ -11,6 +15,11 @@ Template.adminPagesSongs.onCreated(function () {
 
 Template.adminPagesSongs.onRendered(function () {
   const self = this;
+
+  // AppUtil.temp.set("contextVal", context);
+  // AppUtil.temp.set("sourceVal", source);
+  // AppUtil.temp.set("audioBufferVal", audioBuffer);
+
   console.log("deneme");
 
   this.autorun(function () {
@@ -91,6 +100,7 @@ Template.adminPagesSongs.events({
       }
     });
   },
+
   // "click #brd-update-song": function (event, template) {
   //   const song = this; //self misali, this'i song'a setliyoruz
 
