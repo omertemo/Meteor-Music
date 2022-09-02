@@ -100,12 +100,4 @@ Template.adminPagesSongs.events({
       }
     });
   },
-
-  // "click #brd-update-song": function (event, template) {
-  //   const song = this; //self misali, this'i song'a setliyoruz
-
-  //   AppUtil.temp.set("song", this);
-
-  //   console.log(this);
-  // },
 });

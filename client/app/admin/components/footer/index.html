@@ -2,14 +2,17 @@
   {{#let _song=(appUtil.temp.get "song")}}
   <footer class="adminComponentsFooter footer bg-light fixed-bottom ">
     <div class="container-fluid fixed-bottom bg-dark border border-white">
+      {{#with _song}}
+
       <div class="row">
+
         <div class="col-3">
           <div class="media">
             <img src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg"
               style="width:64px;height:64px" class="align-self-center mr-3" alt="...">
             <div class="media-body text-white">
-              <h5 class="mt-0">Song name</h5>
-              <p>Artist name</p>
+              <h5 class="mt-0">{{songName}}</h5>
+              <p>{{singerName}}</p>
             </div>
           </div>
         </div>
@@ -20,8 +23,14 @@
             <i class="bi bi-shuffle me-5 fs-3"></i>
             <i class="bi bi-skip-backward-fill me-3 fs-3"></i>
 
-            <!-- {{> adminComponentsAudioControl song=_song}} -->
-            {{> adminComponentsAudioControl }}
+            {{> adminComponentsAudioControl}}
+            <!-- <button id="startButtonFooter" class="btn me-1 fs-1 text-white bg-transparent">
+              <i class="bi bi-play-circle   icon"></i>
+            </button>
+
+            <button id="stopButtonFooter" class="btn fs-1 text-white bg-transparent">
+              <i class="bi bi-pause-circle "></i>
+            </button> -->
 
             <i class="bi bi-skip-forward-fill ms-3 fs-3"></i>
             <i class="bi bi-repeat ms-5 fs-3"></i>
@@ -47,7 +56,10 @@
 
         </div>
       </div>
+      {{/with}}
+
     </div>
+
   </footer>
   {{/let}}
 </template>

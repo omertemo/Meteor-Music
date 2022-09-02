@@ -2,10 +2,6 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import Swal from "sweetalert2";
 
 Template.publicPagesHome.onCreated(function () {
-  context = new AudioContext();
-  source = null;
-  audioBuffer = null;
-
   this.state = new ReactiveDict(null, {
     songs: [],
     category: [],

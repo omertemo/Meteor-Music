@@ -1,18 +1,23 @@
 Template.adminComponentsAudioControl.onCreated(function () {
+  context = new AudioContext();
   source = null;
+  audioBuffer = null;
   this.state = new ReactiveDict(null, {
     audioBuf: String,
     isPlay: Boolean,
     tempThis: Object,
   });
 });
-Template.adminComponentsAudioControl.onRendered(function () {
-  const self = this;
-});
 
 Template.adminComponentsAudioControl.events({
   "click #startButton": function (event, template) {
-    // AppUtil.temp.set("song", template);
+    event.preventDefault();
+
+    AppUtil.temp.set("song", this);
+    console.log("this");
+    console.log(this);
+    console.log("this.data");
+    console.log(this.data);
 
     template.state.set("isPlay", true);
     if (source) {
@@ -37,6 +42,8 @@ Template.adminComponentsAudioControl.events({
   },
 
   "click #stopButton": function (event, template) {
+    event.preventDefault();
+
     if (source) {
       template.state.set("isPlay", false);
       console.log("Müzik Durduruldu");
