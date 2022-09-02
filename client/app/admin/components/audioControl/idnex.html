@@ -1,10 +1,18 @@
 <template name="adminComponentsAudioControl">
+  {{#let _isPlay = (state.get "isPlay")}}
+
+  {{#unless _isPlay}}
   <button id="startButton" class="btn me-1 fs-1 text-white bg-transparent">
     <i class="bi bi-play-circle   icon"></i>
   </button>
+  {{else}}
+
   <button id="stopButton" class="btn fs-1 text-white bg-transparent">
     <i class="bi bi-pause-circle "></i>
   </button>
+  {{/unless}}
+
+  {{/let}}
 </template>
 <!-- <template name="adminComponentsAudioControl">
   {{#if isPlay}}

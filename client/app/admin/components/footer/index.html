@@ -1,5 +1,6 @@
 <template name="adminComponentsFooter">
-  <footer class="footer bg-light fixed-bottom ">
+  {{#let _song=(appUtil.temp.get "song")}}
+  <footer class="adminComponentsFooter footer bg-light fixed-bottom ">
     <div class="container-fluid fixed-bottom bg-dark border border-white">
       <div class="row">
         <div class="col-3">
@@ -12,18 +13,21 @@
             </div>
           </div>
         </div>
+
         <div class="col-6">
           <div class="play-icons text-white align-items-center d-flex justify-content-center">
 
             <i class="bi bi-shuffle me-5 fs-3"></i>
             <i class="bi bi-skip-backward-fill me-3 fs-3"></i>
 
+            <!-- {{> adminComponentsAudioControl song=_song}} -->
             {{> adminComponentsAudioControl }}
 
             <i class="bi bi-skip-forward-fill ms-3 fs-3"></i>
             <i class="bi bi-repeat ms-5 fs-3"></i>
 
           </div>
+
           <div class="progress-block mt-1 text-white d-flex justify-content-between align-items-center">
             <div class="me-2">0:00</div>
             <div class="progress w-100">
@@ -32,12 +36,11 @@
             </div>
             <div class="ms-2">2:59</div>
           </div>
-        </div>
-        <div class="col-3 text-white d-inline-flex align-items-center">
-          <!-- <div class="ml-2"> <i class="material-icons">open_in_full</i> </div> -->
 
+        </div>
+
+        <div class="col-3 text-white d-inline-flex align-items-center">
           <div class="me-5"> <i class="fa-solid fa-volume-high "></i></div>
-          <!-- <div class="ml-2"> <i class="material-icons">queue_music</i> </div>-->
           <div class="me-5"> <i class="fa-solid fa-volume-xmark"></i> </div>
 
 
@@ -46,4 +49,5 @@
       </div>
     </div>
   </footer>
+  {{/let}}
 </template>

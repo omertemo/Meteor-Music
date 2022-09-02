@@ -43,19 +43,6 @@ Template.adminModalsAddSong.onRendered(function () {
 });
 
 Template.adminModalsAddSong.events({
-  // "click #startButton": function (event, template) {
-  //   source = context.createBufferSource();
-  //   source.buffer = audioBuffer;
-  //   source.loop = false;
-  //   source.connect(context.destination);
-  //   source.start(0); // Play immediately.
-  // },
-  // "click #stopButton": function (event, template) {
-  //   if (source) {
-  //     source.stop(0);
-  //   }
-  // },
-
   "submit form#brdAdminModalsAddSongForm": function (event, template) {
     event.preventDefault();
     const categoryIdVar = FlowRouter.getParam("categoryId");

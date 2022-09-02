@@ -1,6 +1,5 @@
 <template name="publicPagesHome">
   {{#let _songs=(state.get "songs")}}
-
   <h1 class="text-white">deneme</h1>
   <!-- ŞARKI LİSTESİ -->
 
@@ -10,8 +9,9 @@
     <li class="list-group-item bg-transparent col-lg-2 col-md-3  col-sm-4 ">
       <div href="#" class="card bg-dark text-white ">
         <img src="img/song.jpg" class="card-img foto" alt="...">
-        <div class="btn card-img-overlay d-flex justify-content-center align-items-center" id="startButton">
-          <i class="bi bi-play-circle fs-1 icon"></i>
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          {{> adminComponentsAudioControl }}
+
         </div>
 
       </div>
