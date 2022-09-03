@@ -1,4 +1,5 @@
 <template name="adminModalsAddSong">
+
   <div class="modal" id="brdAdminModalsAddSongModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -11,8 +12,8 @@
 
             <div class="mb-3">
               <label for="brdSongNameField" class="form-label">Song Name</label>
-              <input type="text" class="form-control" id="brdSongNameField" aria-describedby="songHelp"
-                name="songName" />
+              <input type="text" class="form-control" id="brdSongNameField" aria-describedby="songHelp" name="songName"
+                value={{state.get 'songName' }} />
             </div>
             <div class="mb-3">
               <label for="brdSongSingerNameField" class="form-label">Signer Name</label>

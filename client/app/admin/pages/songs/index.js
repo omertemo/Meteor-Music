@@ -2,10 +2,6 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import Swal from "sweetalert2";
 
 Template.adminPagesSongs.onCreated(function () {
-  context = new AudioContext();
-  source = null;
-  audioBuffer = null;
-
   this.state = new ReactiveDict(null, {
     songs: [],
     category: [],
@@ -15,12 +11,6 @@ Template.adminPagesSongs.onCreated(function () {
 
 Template.adminPagesSongs.onRendered(function () {
   const self = this;
-
-  // AppUtil.temp.set("contextVal", context);
-  // AppUtil.temp.set("sourceVal", source);
-  // AppUtil.temp.set("audioBufferVal", audioBuffer);
-
-  console.log("deneme");
 
   this.autorun(function () {
     const categoryIdVar = FlowRouter.getParam("categoryId");
@@ -33,7 +23,7 @@ Template.adminPagesSongs.onRendered(function () {
           console.log("error", error);
           return;
         }
-        console.log(result);
+
         self.state.set("category", result);
       }
     );
@@ -43,9 +33,6 @@ Template.adminPagesSongs.onRendered(function () {
     AppUtil.refreshTokens.get("songs");
     const filteringVar = self.filtering.all();
     const categoryIdVar = FlowRouter.getParam("categoryId");
-    // console.log(filteringVar);
-    // console.log(categoryIdVar);
-    // console.log(self);
 
     if (!categoryIdVar) {
       return;

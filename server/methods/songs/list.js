@@ -11,7 +11,9 @@ new ValidatedMethod({
   run: function (data) {
     this.unblock();
 
-    const { options } = data;
+    const { options = {} } = data;
+
+    options.fields = { base64: 0 };
     return Fetch(Songs, {}, options, "songs");
   },
 });
