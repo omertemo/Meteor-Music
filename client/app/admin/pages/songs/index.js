@@ -12,6 +12,7 @@ Template.adminPagesSongs.onCreated(function () {
 Template.adminPagesSongs.onRendered(function () {
   const self = this;
 
+  //categories.show
   this.autorun(function () {
     const categoryIdVar = FlowRouter.getParam("categoryId");
 
@@ -29,6 +30,7 @@ Template.adminPagesSongs.onRendered(function () {
     );
   });
 
+  //songs.list
   this.autorun(function () {
     AppUtil.refreshTokens.get("songs");
     const filteringVar = self.filtering.all();
