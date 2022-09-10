@@ -1,3 +1,4 @@
+
 Template.adminComponentsAudioControl.onCreated(function () {});
 
 Template.adminComponentsAudioControl.onRendered(function () {
@@ -24,5 +25,6 @@ Template.adminComponentsAudioControl.events({
   "click #stopButton": function (event, template) {
     event.preventDefault();
     AudioGlobal.pause();
+
   },
 });
