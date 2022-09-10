@@ -24,31 +24,3 @@ Template.publicPagesHome.onRendered(function () {
     });
   });
 });
-
-Template.publicPagesHome.events({
-  "click #startButton": function (event, template) {
-    event.preventDefault();
-
-    if (source) {
-      source.stop(0);
-    }
-
-    base64Val = this.arrayBuf;
-
-    AudioGlobal.audioFunction(context, source, audioBuffer, base64Val);
-  },
-
-  "click #stopButton": function (event, template) {
-    if (source) {
-      source.stop(0);
-    }
-  },
-
-  // "click #brd-update-song": function (event, template) {
-  //   const song = this; //self misali, this'i song'a setliyoruz
-
-  //   AppUtil.temp.set("song", this);
-
-  //   console.log(this);
-  // },
-});

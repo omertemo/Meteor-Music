@@ -1,7 +1,6 @@
 Template.adminComponentsNavbar.events({
-  "click .brd-logout": function (event, template) {
+  "click .bos": function (event, template) {
     event.preventDefault();
-
-    Meteor.logout();
+    console.log(AppUtil.temp.get("songsTemp"));
   },
 });

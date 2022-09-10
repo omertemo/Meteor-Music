@@ -10,8 +10,10 @@ new ValidatedMethod({
   }).validator(),
   run: function (data) {
     this.unblock();
+    console.log(data);
+    const { options = {} } = data;
 
-    const { options } = data;
+    options.fields = { base64: 0 };
     return Fetch(Songs, {}, options, "songs");
   },
 });

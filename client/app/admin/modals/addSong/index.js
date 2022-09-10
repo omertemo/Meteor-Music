@@ -3,30 +3,25 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 Template.adminModalsAddSong.onCreated(function () {
   deneme = null;
+  this.file = null;
+  this.base64 = null;
 });
 
 Template.adminModalsAddSong.onRendered(function () {
   const self = this;
 
-  bufferToBase64 = function (buffer) {
-    var bytes = new Uint8Array(buffer);
-    var len = buffer.byteLength;
-    var binary = "";
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    deneme = window.btoa(binary);
-    return window.btoa(binary);
-  };
-  // User selects file, read it as an ArrayBuffer and pass to the API.
-  var fileInput = document.querySelector('input[type="file"]');
+  const fileInput = document.querySelector('input[type="file"]');
   fileInput.addEventListener(
     "change",
     function (event) {
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.onload = function (e) {
-        bufferToBase64(this.result);
+        self.base64 = AudioGlobal.bufferToBase64(this.result);
       };
+
+      self.file = this.files[0];
+      console.log(this.files[0]);
+
       reader.readAsArrayBuffer(this.files[0]);
     },
     false
@@ -38,39 +33,22 @@ Template.adminModalsAddSong.onRendered(function () {
   modalElement.addEventListener("hidden.bs.modal", function (event) {
     self.$("form#brdAdminModalsAddSongForm").trigger("reset");
   });
-  console.log(self);
-  console.log(self.$("form#brdAdminModalsAddSongForm"));
 });
 
 Template.adminModalsAddSong.events({
-  // "click #startButton": function (event, template) {
-  //   source = context.createBufferSource();
-  //   source.buffer = audioBuffer;
-  //   source.loop = false;
-  //   source.connect(context.destination);
-  //   source.start(0); // Play immediately.
-  // },
-  // "click #stopButton": function (event, template) {
-  //   if (source) {
-  //     source.stop(0);
-  //   }
-  // },
-
   "submit form#brdAdminModalsAddSongForm": function (event, template) {
     event.preventDefault();
     const categoryIdVar = FlowRouter.getParam("categoryId");
-    console.log(categoryIdVar);
-
     const songName = event.target.songName.value;
     const singerName = event.target.singerName.value;
-    const arrayBuf = deneme;
     const categoryId = categoryIdVar;
 
     const obj = {
       song: {
         songName: songName,
         singerName: singerName,
-        arrayBuf: arrayBuf,
+        base64: template.base64,
+        fileType: template.file.type,
         categoryId: categoryId,
       },
     };
@@ -81,7 +59,6 @@ Template.adminModalsAddSong.events({
         return;
       }
 
-      console.log(result); //hata gelmeyecekse istediğimiz sonucu bu şekilde görebiliriz
       AppUtil.refreshTokens.set("songs", Random.id()); //içerisnde birden fazla reaktif değişken buluna bir obje
       event.target.reset(); // işlem bittikten sonra formu temizler
       template.modal.hide(); //

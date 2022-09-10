@@ -2,10 +2,6 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import Swal from "sweetalert2";
 
 Template.adminPagesSongs.onCreated(function () {
-  context = new AudioContext();
-  source = null;
-  audioBuffer = null;
-
   this.state = new ReactiveDict(null, {
     songs: [],
     category: [],
@@ -16,12 +12,7 @@ Template.adminPagesSongs.onCreated(function () {
 Template.adminPagesSongs.onRendered(function () {
   const self = this;
 
-  // AppUtil.temp.set("contextVal", context);
-  // AppUtil.temp.set("sourceVal", source);
-  // AppUtil.temp.set("audioBufferVal", audioBuffer);
-
-  console.log("deneme");
-
+  //categories.show
   this.autorun(function () {
     const categoryIdVar = FlowRouter.getParam("categoryId");
 
@@ -33,19 +24,17 @@ Template.adminPagesSongs.onRendered(function () {
           console.log("error", error);
           return;
         }
-        console.log(result);
+
         self.state.set("category", result);
       }
     );
   });
 
+  //songs.list
   this.autorun(function () {
     AppUtil.refreshTokens.get("songs");
     const filteringVar = self.filtering.all();
     const categoryIdVar = FlowRouter.getParam("categoryId");
-    // console.log(filteringVar);
-    // console.log(categoryIdVar);
-    // console.log(self);
 
     if (!categoryIdVar) {
       return;
@@ -65,12 +54,14 @@ Template.adminPagesSongs.onRendered(function () {
         return;
       }
       self.state.set("songs", result.songs);
+      AppUtil.temp.set("songsTemp", result.songs);
     });
   });
 });
 
 Template.adminPagesSongs.events({
   "click #brd-delete-song": function (event, template) {
+    console.log(AppUtil.temp.get("songsTemp"));
     const song = this; //self misali, this'i song'a setliyoruz
 
     Swal.fire({
@@ -100,12 +91,4 @@ Template.adminPagesSongs.events({
       }
     });
   },
-
-  // "click #brd-update-song": function (event, template) {
-  //   const song = this; //self misali, this'i song'a setliyoruz
-
-  //   AppUtil.temp.set("song", this);
-
-  //   console.log(this);
-  // },
 });
