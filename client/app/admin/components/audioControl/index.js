@@ -1,6 +1,4 @@
-Template.adminComponentsAudioControl.onCreated(function () {
-  this.state = new ReactiveDict(null, {});
-});
+Template.adminComponentsAudioControl.onCreated(function () {});
 
 Template.adminComponentsAudioControl.onRendered(function () {
   const self = this;
@@ -9,9 +7,9 @@ Template.adminComponentsAudioControl.onRendered(function () {
 Template.adminComponentsAudioControl.events({
   "click #startButton": function (event, template) {
     event.preventDefault();
+    // console.log(template.data);
 
     const song = template.data.song;
-
     Meteor.call("songs.show", { _id: song._id }, function (error, result) {
       if (error) {
         console.log("error", error);

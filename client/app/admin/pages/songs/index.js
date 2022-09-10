@@ -54,12 +54,14 @@ Template.adminPagesSongs.onRendered(function () {
         return;
       }
       self.state.set("songs", result.songs);
+      AppUtil.temp.set("songsTemp", result.songs);
     });
   });
 });
 
 Template.adminPagesSongs.events({
   "click #brd-delete-song": function (event, template) {
+    console.log(AppUtil.temp.get("songsTemp"));
     const song = this; //self misali, this'i song'a setliyoruz
 
     Swal.fire({
